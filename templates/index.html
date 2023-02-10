@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style2.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+    <!-- <link href="style2.css" rel="stylesheet">
+    <link href="style3.css" rel="stylesheet">
+    <link href="style4.css" rel="stylesheet"> -->
+
+    <title>연습</title>
+
+</head>
+
+<body>
+    <div class="modal-chat">
+        <div class="form-chat">
+            <p><span class="inform">알고 싶은 여행지를 선택해주세요!</span></p>
+            <select class="inform" id="dest">
+                <option>베트남</option>
+                <option>태국</option>
+                <option>말레이시아</option>
+                <option>싱가폴</option>
+            </select>
+            <p> </p>
+            <p><span class="inform">문의내용을 적어주세요!</span></p>
+            <textarea class="inform" id="contents"></textarea>
+            <p> </p>
+            <div class="btn-group">
+                <span class="submit" id="submit">제출</span>
+                <span class="close">닫기</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- -은선- -->
+    <form class="modal_login2">
+        <div class="modal_body">
+            <div class="myId">
+                <h5>아이디, 비밀번호를 입력해주세요</h5>
+            </div>
+            <div class="myPass">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">ID</span>
+                    <input type="text" class="form-control" placeholder="ID를 입력하세요" aria-label="ID" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">PW</span>
+                    <input type="password" class="form-control" placeholder="Password를 입력하세요" aria-label="PASSWORD" aria-describedby="basic-addon1">
+                </div>
+                <!-- <p> ID: <input type="text" /></p>
+                <p> PW: <input type="password" /></p> -->
+                <button class="myButton" onclick="">완료</button>
+                <button class="btnClose" onclick="offClick()">닫기</button>
+            </div>
+        </div>
+    </form>
+
+    <form class="modal_login">
+        <div class="modal_body">
+            <div class="myMember">
+                <h5>회원가입</h5>
+                <div class="myMem">
+                    <p> 아이디: <input type="id" /></p>
+                    <p> 비밀번호: <input type="password" /></p>
+                    <p> 이름: <input type="name" /></p>
+                    <p> 생년월일: <input type="birthdate" /></p>
+                    <button id="theend">완료</button>
+                    <button id="Close" onclick="off_Click()">닫기</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <span id="aa" type="button" href="#">HangHae 18조</span>
+        </div>
+        <div class="navbar__menu">
+            <button onClick="window.location.reload()">Home</button>
+            <button class="mylogin" onclick="onClick()">Login</button>
+            <button class="member" onclick="on_Click()">Membership</button>
+        </div>
+
+    </nav>
+    <header>
+        <div class="hd_text">
+            <p class="hd_title">조용하고 따뜻한 남쪽으로 오세요</p>
+            <p class="hd_detail">도시를 떠나서<br>자연을 누리세요</p>
+        </div>
+        <div class="slide-indicators">
+            <button class="btn-slide current"></button>
+            <button class="btn-slide"></button>
+            <button class="btn-slide"></button>
+        </div>
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="/static/1.jpg">
+            </div>
+            <div class="slide-box">
+                <img src="/static/2.jpg">
+            </div>
+            <div class="slide-box">
+                <img src="/static/3.jpg">
+            </div>
+        </div>
+    </header>
+
+    <main class="mainbar">
+        <div class="mainbar__country">
+            <button class="vietnamButton" id="vietnamButton11">베트남</button>
+            <button class="thailandButton" id="thailandButton11">태국</button>
+            <button class="malaysiaButton" id="malaysiaButton11">말레이시아</button>
+            <button class="singaporeButton" id="singaporeButton11">싱가포르</button>
+        </div>
+        <div class="mainbar__menu">
+            <div class="menu" id="vietnam">
+                <button class="openDetailHanoi">하노이/하롱베이 5일</button>
+                <div class="mainbar__detail" id="detailHanoi">
+                    <p class="detailPoint">상품 핵심포인트</p>
+                    <p>① 가족여행 맞춤! 5성급 호텔 숙박</p>
+                    <p>② 하노이 여행의 정석! 하롱베이와 옌뜨 국립공원</p>
+                    <p>③ 하롱베이에서는 단독 유람선(목선) 탑승하여 하롱베이 관광이 이루어집니다!</p>
+                    <p>④ 하롱베이 비경관광 포함</p>
+                    <p>⑤ 여행의 피로를 풀어줄 전신마사지 2시간 포함</p>
+                    <p>⑥ 하노이시티투어 (나이트투어+롯데전망대),</p>
+                    <p>⑦ 하롱베이→하노이 편도 고속도로로 빠르게 이동</p>
+                    <p>⑧ 미식의 천국 베트남에서의 맛있는 여행</p>
+                    <p>⑨ 우리가족 폴라로이드 사진 제공(1인 1장)</p>
+                    <p>⑩ 우리가족 수다타임! 객실당 스낵바구니 제공</p>
+                    <p>⑪ 스낵과 함께할 하노이 비어 제공(1인 1캔)</p>
+                    <p>⑫ 베트남 전통모자 '농' 제공</p>
+                    <p>⑬ 부모님을 위한 이벤트 혜택 제공</p>
+                    <p>⑭ NO쇼핑! 가이드/기사경비포함</p>
+                    <button class="closeDetailHanoi">닫기</button>
+                </div>
+
+                <button class="openDetailNhatrang">나트랑&판랑&달랏 5일#판랑사막#랑비엔#나트랑관광</button>
+                <div class="mainbar__detail" id="detailNhatrang">
+                    <p>✅ 상품 핵심포인트</p>
+                    <p>① 나트랑/달랏 4성급 호텔</p>
+                    <p>② 나트랑 핵심관광▶</p>
+                    <p>③ 색다른 매력의 판랑 핵심관광▶</p>
+                    <p>④ 영원한 봄의 도시 달랏 핵심관광▶</p>
+                    <p>⑤ 비교 필수! 거품 없고 합리적인 가격의 선택관광</p>
+                    <button class="closeDetailNhatrang">닫기</button>
+                </div>
+                <button class="openDetailSapa">베트남 하노이/사파 5일#4성급호텔 #판시판탐험 #야시장</button>
+                <div class="mainbar__detail" id="detailSapa">
+                    <p>상품 핵심포인트</p>
+                    <p>① 엄선한 호텔! 하노이 1박+사파 2박</p>
+                    <p>② 청정힐링여행지 "사파"로 떠나는 모험여행!</p>
+                    <p>③ 함롱산 트레킹하며 사파 전경 조망</p>
+                    <p>④ 인도차이나에서 제일 높은 판시판 탐험</p>
+                    <p>└ 기차 + 케이블카 + 트램</p>
+                    <p>⑤ 흑몽족의 터전인 깟깟마을 산책</p>
+                    <p>⑥ 현지의 맛을 즐길 줄 아는 미식여행</p>
+                    <p>⑦ 하노이 스트릿카를 타고누비는 구시가지</p>
+                    <p>⑧ 피로를 풀어주는 발마사지 1시간 포함</p>
+                    <p>⑨ 비교필수! 거품없고 합리적인 가격의 선택관광</p>
+                    <button class="closeDetailSapa">닫기</button>
+                </div>
+                <button class="openDetailHalong">하노이/하롱베이 5일#夜밤을 거닐다 #밤산책 #하롱비경</button>
+                <div class="mainbar__detail" id="detailHalong">
+                    <p>상품 핵심포인트</p>
+                    <p>① 하노이/하롱베이 특5성급 호텔 숙박</p>
+                    <p>② 하노이와 하롱베이의 야경 모두 즐기기</p>
+                    <p>③ 하롱베이 단독 목선유람선+씨푸드 특식 제공</p>
+                    <p>④ 하롱베이 비경관광 포함</p>
+                    <p>⑤ 여행의 피로를 풀어줄 발마사지 포함</p>
+                    <p>⑥ 하노이 야간산책투어 (맥주거리+롯데전망대)</p>
+                    <p>⑦ 하롱파크 케이블카&대관람차</p>
+                    <p>⑧ 하롱베이↔하노이 왕복 고속도로로 빠르게 이동</p>
+                    <p>⑨ 미식의 천국 베트남에서의 맛있는 여행</p>
+                    <p>⑩ 3일차 오전 자유시간 제공</p>
+                    <p>⑪ NO쇼핑! 가이드/기사경비포함</p>
+                    <button class="closeDetailHalong">닫기</button>
+                </div>
+            </div>
+            <div id="thailand">
+                <button class="openDetailBangkok">방콕/파타야 5일 #새로운태국 #전일정5성호텔 #니모섬</button>
+                <div class="mainbar__detail" id="detailBangkok">
+                    <p>상품 핵심포인트</p>
+                    <p>① 태국 최대 인피니티풀을 갖춘 로얄클리프 호텔</p>
+                    <p>② 방콕 프리미엄 5성호텔 투숙</p>
+                    <p>③ 아름답고 신비한 '니모섬 스노클링'</p>
+                    <p>④ 파타야의 떠오르는 핫플레이스 '코끼리 테마카페'</p>
+                    <p>⑤ 파타야 선셋 맛집 '케이브 비치클럽'</p>
+                    <p>⑥ 방콕의 새로운 랜드마크 '죠드페어 야시장'</p>
+                    <p>⑦ 내 마음대로 즐길 수 있는 1일 자유일정</p>
+                    <p>⑧ 새로워진 방콕/파타야를 선물할 종합선물세트</p>
+                    <p>⑨ 비교필수! 거품없고 합리적인 가격의 선택관광</p>
+                    <button class="closeDetailBangkok">닫기</button>
+                </div>
+                <button class="openDetailChiang">치앙마이 3박 4일#가성비추천#도이인타논#</button>
+                <div class="mainbar__detail" id="detailChiang">
+                    <p>상품 핵심포인트</p>
+                    <p>① 하나투어가 엄선한 4성급 이상의 호텔 투숙</p>
+                    <p>② 치앙마이만의 매력속으로, 가성비있게 꽉 채운 일정</p>
+                    <p>③ 태국에서 가장 높은 산, 도이인타논에서의 힐링&산림욕</p>
+                    <p>④ 유기농재료들로 조리한 음식, 인타논 로얄프로젝트</p>
+                    <p>⑤ 비교필수! 거품없고 합리적인 가격의 선택관광</p>
+                    <button class="closeDetailChiang">닫기</button>
+                </div>
+                <button class="openDetailPattaya">파타야 5일 #초특급호텔#요트크루즈#</button>
+                <div class="mainbar__detail" id="detailPattaya">
+                    <p>상품 핵심포인트</p>
+                    <p>① 편안한 휴식을 책임질 5성급 호텔 투숙</p>
+                    <p>② 에메랄드 빛 파타야에서 즐기는 요트크루즈&스노클링</p>
+                    <p>③ 태국에 왔으면 꼭 봐야할 화려한 '파타야 쇼'</p>
+                    <p>④ 방콕 초대형 쇼핑몰에서 즐기는 자유로운 쇼핑</p>
+                    <p>⑤ 짜오프라야 강변에서 즐기는 호텔 뷔페</p>
+                    <p>⑥ 레전드 타이푸드 '사보이 레스토랑'</p>
+                    <p>⑦ 핵심일정은 물론 여유와 힐링까지 있는 여행</p>
+                    <button class="closeDetailPattaya">닫기</button>
+                </div>
+                <button class="openDetailPhuket">푸껫 6일#관광형#안다키라#팡아만#</button>
+                <div class="mainbar__detail" id="detailPhuket">
+                    <p>상품핵심포인트</p>
+                    <p>① 파통 비치에 위치한 안다키라 리조트</p>
+                    <p>② 아름다운 물빛과 산호로 가득한 산호섬</p>
+                    <p>③ 밤의 또 다른 활기를 느낄 수 있는 야시장 투어</p>
+                    <p>④ 여행의 피로를 풀어주는 타이 전통 지압 60분</p>
+                    <p>⑤ 다양한 태국 현지식 맛보기</p>
+                    <p>⑥ 자연이 빚은 절경에서 즐기는 이슬람해선식</p>
+                    <p>⑦ 비교필수! 거품없고 합리적인 가격의 선택관광</p>
+                    <button class="closeDetailPhuket">닫기</button>
+                </div>
+            </div>
+            <div id="malaysia">
+                <button class="openDetailMalaysia1">코타키나발루 키나발루산 트레킹 5일 #동남아최고봉#</button>
+                <div class="mainbar__detail" id="detailMalaysia1">
+                    <p>상품 핵심포인트</p>
+                    <p>① 키나발루산 정상 등정 상품</p>
+                    <p>② 키나발루산 국립공원 롯지+산장 숙박</p>
+                    <p>③ 코타키나발루 시내위치 프로미네이드 호텔 숙박</p>
+                    <p>④ 마지막날 18:00까지 레이트 체크아웃</p>
+                    <p>⑤ 1일 전일 자유시간 일정</p>
+                    <p>⑥ 키나발루산 등반 증명서 제공</p>
+                    <p>⑦ 노쇼핑 상품</p>
+                    <button class="closeDetailMalaysia1">닫기</button>
+                </div>
+                <button class="openDetailMalaysia2">쿠알라룸푸르/말라카/겐팅 5일#유네스코세계문화유산#</button>
+                <div class="mainbar__detail" id="detailMalaysia2">
+                    <p>상품 핵심포인트</p>
+                    <p>① 5성급 호텔 숙박으로 편안하게!</p>
+                    <p>② 이것만은 꼭! 엄선한 핵심투어</p>
+                    <p>· 말레이시아의 수도 '쿠알라룸푸르'</p>
+                    <p>· 유네스코 세계문화유산의 도시 '말라카'</p>
+                    <p>· 구름 위의 레저도시 '겐팅'</p>
+                    <p>③ 쿠알라룸푸르의 랜드마크 'KL타워 전망대'</p>
+                    <p>④ 반딧불이가 수놓은 아름다운 밤하늘 '반딧불이투어'</p>
+                    <p>⑤ 말라카 골목 구석구석을 달리는 '트라이쇼'</p>
+                    <button class="closeDetailMalaysia2">닫기</button>
+                </div>
+                <button class="openDetailMalaysia3">코타키나발루 5일 #밍가든 #아일랜드투어 </button>
+                <div class="mainbar__detail" id="detailMalaysia3">
+                    <p>상품 핵심포인트</p>
+                    <p>① 이마고몰 인근 밍가든 호텔 투숙</p>
+                    <p>② 일정을 편안하게 해드릴 슈페리어룸 투숙</p>
+                    <p>③ 툰구압둘라만 해양국립공원 아일랜드 투어</p>
+                    <p>④ 수채화보다 아름다운 석양 선셋나이트투어</p>
+                    <p>⑤ 내맘대로 즐길 수 있는 전일 자유일정 포함</p>
+                    <button class="closeDetailMalaysia3">닫기</button>
+                </div>
+                <button class="openDetailMalaysia4">코타키나발루 6일 #샹그릴라 탄중아루</button>
+                <div class="mainbar__detail" id="detailMalaysia4">
+                    <p>상품 핵심포인트</p>
+                    <p>① 럭셔리 원픽!! 샹그릴라 탄중아루 리조트</p>
+                    <p>② 탄중윙 씨뷰룸으로 무료 객실 업그레이드</p>
+                    <p>③ 툰구압둘라만 해양국립공원 아일랜드 투어</p>
+                    <p>④ 몽환적인 빛의 향연의 감동 반딧불이투어</p>
+                    <p>⑤ 블루모스크, 사바주청사 포함 핵심 시티투어</p>
+                    <button class="closeDetailMalaysia4">닫기</button>
+                </div>
+            </div>
+            <div id="singapore">
+                <button class="openDetailSingapore1">싱가포르 5일#센토사 데이투어 #루지 #마담투소 #리버원더스</button>
+                <div class="mainbar__detail" id="detailSingapore1">
+                    <p>상품 핵심포인트</p>
+                    <p>① 도심 속 편안한 휴식, 4성급 인기 호텔 숙박</p>
+                    <p>② 싱가포르 필수 코스만 골라 핵심 관광</p>
+                    <p>③ '도시 속의 정원'_가든스 바이 더 베이</p>
+                    <p>④ 강을 테마로 한 동물원_리버원더스</p>
+                    <p>⑤ 테마파크의 섬, 센토사 일일투어</p>
+                    <button class="closeDetailSingapore1">닫기</button>
+                </div>
+                <button class="openDetailSingapore2">싱가포르 5일# 5성호텔 #1일자유 #슈퍼트리쇼</button>
+                <div class="mainbar__detail" id="detailSingapore2">
+                    <p>상품 핵심포인트</p>
+                    <p>① 센토사섬에 위치한 호텔 투숙</p>
+                    <p>② 나만의 일정을 만들 수 있는 1일 자유일정</p>
+                    <p>③ 싱가포르 핵심 관광지는 가이드와 안심 동행</p>
+                    <p>④ 테마파크의 섬, 센토사 일일투어</p>
+                    <p>⑤ 미식의 천국 싱가포르에서의 맛있는 여행</p>
+                    <button class="closeDetailSingapore2">닫기</button>
+                </div>
+                <button class="openDetailSingapore3">싱가포르 5일# 1일자유 #루지 #슈퍼트리쇼</button>
+                <div class="mainbar__detail" id="detailSingapore3">
+                    상품 핵심포인트
+                    <p>① 3성 호텔 -> 4성 호텔 업그레이드</p>
+                    <p>② 나만의 일정을 만들 수 있는 1일 자유일정</p>
+                    <p>③ 싱가포르 핵심 관광지는 가이드와 안심 동행</p>
+                    <p>④ 테마파크의 섬, 센토사 일일투어</p>
+                    <p>⑤ 미식의 천국 싱가포르에서의 맛있는 여행</p>
+                    <button class="closeDetailSingapore3">닫기</button>
+                </div>
+                <button class="openDetailSingapore4">싱가포르 5일 #1일자유 #루지 #3성호텔 + 마리나베이샌즈호텔</button>
+                <div class="mainbar__detail" id="detailSingapore4">
+                    <p>상품 핵심포인트</p>
+                    <p>① 싱가포르 랜드마크, 마리나베이샌즈 호텔 1박</p>
+                    <p>② 최고의 가성비, 실속 있는 3성급 호텔 숙박</p>
+                    <p>③ 나만의 일정을 만들 수 있는 1일 자유일정</p>
+                    <p>④ 싱가포르 핵심 관광지는 가이드와 안심 동행</p>
+                    <p>⑤ 테마파크의 섬, 센토사 일일투어</p>
+                    <button class="closeDetailSingapore4">닫기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <table class="bbs">
+        <thead>
+            <tr>
+                <th scope="col" id="th_user">작성자</th>
+                <th scope="col" id="th_dest">여행국가</th>
+                <th scope="col" id="th_contents">문의내용</th>
+            </tr>
+        </thead>
+        <tbody id="bbs-box"></tbody>
+    </table>
+    <div class="chat"><span class="open-form">문의하기</span></div>
+    <footer>
+        <p>copyrighter : 김용민 정은선 송철환</p>
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='carousel.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='chat.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='mainpart.js') }}"></script>
+</body>
+
+</html>
